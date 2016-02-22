@@ -1,0 +1,404 @@
+img { border : 0 }
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+	height : 100%;
+    margin : 0px;
+    padding : 0px;
+   
+
+    font-family : nanumgothic,'나눔고딕','Malgun Gothic','맑은 고딕',"Helvetica Neue", 'Helvetica','굴림',gulim,AppleGothic !important;
+    color : black;
+    background-image: url("../images/bg.png");
+    background-repeat: repeat;
+}
+
+.text-center{
+	text-align : center;
+}
+
+
+#mask {  
+	position:absolute;  
+	left:0;
+	top:0;
+	z-index:3000;  
+	background-color:#000;  
+	display:none;  
+	filter:alpha(opacity=60);
+ 	opacity:0.6;
+}
+
+#main-container{
+	position : relative;
+	
+}
+
+
+#main-header {
+	height : 55px;
+	text-align : left;
+	line-height : 55px;
+}
+
+#main-body-wrapper{
+
+	min-height : 500px;
+	text-align : left;
+
+}
+
+#main-header .width-1280{
+	overflow : hidden;
+}
+
+#main-body-wrapper .width-1280{
+	overflow : hidden;
+}
+
+.width-1280{
+	margin : 0 auto;
+	width : 1280px;
+	overflow : auto;
+}
+
+.width-1280-no-overflow{
+	margin : 0 auto;
+	width : 1280px;
+}
+
+.pos-relative{
+	position : relative;
+}
+
+#header-logo{
+	float : left;
+	width : 150px;
+}
+
+#header-right{
+	float : right;
+	width : 500px;
+	text-align : right;
+}
+
+#header-right span{
+	display : inline-block;
+	margin-right : 20px;
+}
+
+
+
+.textmiddle{
+	vertical-align : middle;
+}
+
+.hide { display : none;}
+
+#loginForm{
+	height : 400px;
+	position:relative;
+	margin-top: 100px;
+}
+
+#loginBox{
+	position : absolute;
+	top : 17px;
+	left : 169px;
+	width : 220px;
+	height : 74px;
+}
+
+#loginBtn{
+	position : absolute;
+	top : 19px;
+	left : 419px;
+	width : 146px;
+	height : 75px;
+}
+
+
+.login-submit-btn{
+	width : 100px;
+	height : 35px;
+}
+
+
+
+.login-submit-btn-old{
+	display : block;
+	width : 146px;
+	height : 48px;
+	background : url("../images/main/btn_login_nor.png");
+	background-repeat : no-repeat;
+}
+
+.login-submit-btn-old:hover{
+	background : url("../images/main/btn_login_over.png");
+	background-repeat : no-repeat;	
+}
+
+
+.find-pass{
+	margin-top : 4px;
+	margin-left : 13px;
+}
+
+.login-divider{
+	position : absolute;
+	height : 82px;
+	width : 2px;
+	top : 14px;
+	right : 376px;
+	background : url("../images/main/line.png");
+	background-repeat : no-repeat;		
+}
+
+.join-btn{
+	display : block;
+	width : 181px;
+	height : 44px;
+	position : absolute;
+	top : 45px;
+	right : 158px;
+	background : url("../images/main/btn_join_nor.png");
+	background-repeat : no-repeat;		
+}
+
+.join-txt{
+	position : absolute;
+	width : 158px;
+	height : 13px;
+	top : 22px;
+	right : 171px;
+}
+
+.join-btn:hover {
+	background : url("../images/main/btn_join_over.png");
+	background-repeat : no-repeat;		
+}
+
+
+
+#totaMask{
+	position : absolute;
+	top : 0;
+	left : 0;
+	z-index : 999;
+	display : none;
+	background-image: url('../images/product/bg.png');
+	background-repeat: repeat;
+}
+
+#productPopup{
+	position : absolute;
+	z-index : 1000;
+	display : none;
+	width : 900px;
+	height : 930px;
+	top : 50px;
+	background-image: url('../images/product/bg_1.png');
+}
+
+.span-margin-left{
+	margin-left : 5px;
+}
+
+nav.opengarden-nav{
+	background-color: #ff7e00;
+	border-color : #ff7e00;
+	background-image : url('');
+	min-height : 42px;
+	height : 42px;
+	padding-left : 0px;
+	padding-right : 0px;
+}
+
+nav.opengarden-nav .container-fluid{
+	padding-left : 0px;
+	padding-right : 0px;	
+}
+
+nav.opengarden-nav .navbar-nav>li>a{
+	padding-top : 10px;
+	padding-bottom : 10px;
+}
+
+nav.opengarden-nav .navbar-nav{
+	width : 100%;
+	background-color: #ff7e00;
+	z-index: 1000;
+}
+
+nav.opengarden-nav .dropdown{
+	text-align : center;
+}
+
+@media (min-width: 768px){
+	nav.opengarden-nav .dropdown{
+		width : 125px;
+	}
+	nav.opengarden-nav .dropdown-menu{
+		width : 125px;
+		text-align : left;
+		background-color: #f9f9f9;
+	}
+}
+
+
+@media (min-width: 992px){
+	nav.opengarden-nav .dropdown{
+		width : 156px;
+	}
+	nav.opengarden-nav .dropdown-menu{
+		width : 156px;
+		text-align : left;
+		background-color: #f9f9f9;
+	}
+}
+
+
+@media (min-width: 1200px){
+	nav.opengarden-nav .dropdown{
+		width : 189px;
+	}
+	nav.opengarden-nav .dropdown-menu{
+		width : 189px;
+		text-align : left;
+		background-color: #f9f9f9;
+	}
+}
+
+
+
+nav.opengarden-nav .navbar-nav>li>a{
+	color : #ffffff;
+}
+
+nav.opengarden-nav .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
+	color : #ffffff;
+	background-color : #e37000;
+}
+
+nav.opengarden-nav .navbar-nav>.active>a{
+	background-image : url('');
+}
+
+nav.opengarden-nav .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
+	color : #ffffff !important;
+	background-color : #e37000 !important;
+}
+
+button.og-btn-warning{
+	background-color: #ffffff;
+	border-color : #ff9a38;
+}
+
+button.og-btn-warning:hover{
+	background-color: #fffff0;
+}
+
+button.og-btn-primary{
+	background-color: #8dc63f;
+	color : #ffffff;
+}
+
+button.og-btn-primary:hover{
+	background-color: #8db000;
+	color : #ffffff;
+}
+
+
+button.og-btn-login{
+	background-color : #ff9a38;	
+	color : #ffffff;
+}
+
+button.og-btn-login:hover{
+	background-color : #ff7000;	
+}
+
+.og-hide {
+	display : none;
+}
+
+.footer-line{
+	width : 100%;
+	height : 1px;
+	background-image: url("../images/1.5/main/footer/main_foot_line.png");
+	background-repeat: repeat-x;
+	margin-bottom: 40px;
+}
+
+.footer-logo-title{
+	font-size : 12px;	
+	color : #ffffff;
+	font-weight : bold;
+	margin-top : 11px;
+}
+
+.footer-logo{
+	width : 80px;
+	margin-left : 20px;
+	text-align : center;	
+}
+
+
+.footer-right{
+	display : none;
+}
+
+
+@media (min-width: 992px){
+	.footer-right{
+		display : block;
+		margin-left : 43px;
+		font-size : 11px;
+	}
+}
+
+.footer-desc{
+	font-weight : bold;
+}
+
+.footer-bottom{
+	margin-top : 15px;
+}
+
+.og-form-input{
+	padding-top : 10px;
+	padding-bottom : 10px;
+	background-color: #ffffff;	
+	border-left : 1px solid #c0c0c0;
+}
+
+.border-bottom{
+	border-bottom : 1px solid transparent;
+	border-color : #ddd;
+	padding-bottom : 7px;
+}
+
+.border-top{
+	border-top : 1px solid transparent;
+	border-color : #ddd;
+	padding-top : 7px;
+}
+
+.margin-bottom-5{
+	margin-bottom : 5px;
+}
+
+.dataTables_wrapper .dataTables_length{
+	margin-top : 10px;
+}
+
+.dataTables_wrapper .dataTables_paginate{
+	float : none !important;
+	margin : 0 auto;
+	text-align : right !important;
+}

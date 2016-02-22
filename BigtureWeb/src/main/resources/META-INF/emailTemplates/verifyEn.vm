@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+<title>Bigture</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+		.classname {
+			background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d34b46), color-stop(1, #c73834) );
+			background:-moz-linear-gradient( center top, #d34b46 5%, #c73834 100% );
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d34b46', endColorstr='#c73834');
+			background-color:#d34b46;
+			-webkit-border-top-left-radius:4px;
+			-moz-border-radius-topleft:4px;
+			border-top-left-radius:4px;
+			-webkit-border-top-right-radius:4px;
+			-moz-border-radius-topright:4px;
+			border-top-right-radius:4px;
+			-webkit-border-bottom-right-radius:4px;
+			-moz-border-radius-bottomright:4px;
+			border-bottom-right-radius:4px;
+			-webkit-border-bottom-left-radius:4px;
+			-moz-border-radius-bottomleft:4px;
+			border-bottom-left-radius:4px;
+			text-indent:0px;
+			display:inline-block;
+			color:#ffffff;
+			font-family:Arial;
+			font-size:15px;
+			font-weight:bold;
+			font-style:normal;
+			height:40px;
+			line-height:45px;
+			width:200px;
+			text-decoration:none;
+			text-align:center;
+			text-shadow:1px 1px 0px #b23e35;
+		}
+		.classname:hover {
+			background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c73834), color-stop(1, #d34b46) );
+			background:-moz-linear-gradient( center top, #c73834 5%, #d34b46 100% );
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c73834', endColorstr='#d34b46');
+			background-color:#c73834;
+		}.classname:active {
+			position:relative;
+			top:1px;
+		}
+
+		a:link {text-decoration:none;}
+		a:visited {text-decoration:none;}
+		a:hover {text-decoration:underline;}
+		a:active {text-decoration:underline;}
+		a {color:#999999}
+
+</style>
+</head>
+<body>
+
+	<table style="width:100%;background-color:#efefe1" border="0" cellspacing="0" cellpadding="0" bgcolor="#efefe1">
+		<tbody>
+			<tr>
+				<td style="line-height:10pt" height="7" bgcolor="#efefe1">&nbsp;</td>
+			</tr>
+			<tr>
+				<td>
+					<table style="line-height:15pt;background-color:#ffffff;font-family:NanumGothic,'나눔고딕'. dotum, '돋움', gulim, '굴림', Arial,sans-serif;color:#333333;font-size:10pt" border="0" cellspacing="0" cellpadding="0" width="616" align="center">
+						<tbody>
+							<tr>
+								<td width="7" align="left" valign="top" bgcolor="#efefe1"></td>
+								<td style="padding-left:7%;padding-right:7%;">
+									<div align=""><br>
+										<img src="http://www.bigture.co.kr:8080/bigture/resources/images/email/bigture_logo.png" border="0" alt="Bigture, Art SNS" align="" style="border:0;color:#003366;font-size:12pt;margin-left:-13px" width="40%">
+									</div><hr style="border:1px dashed #eee;">
+									<p style="margin-top:30px">Hello, $name! We’re Bigture, the art social network.</p>
+									<p>You can complete your verification by clicking on the button below.</p>
+									<a href="http://www.bigture.co.kr:8080/bigture/mobile/account/activateUser/86848ds91919/$id" class="classname" target=_blank>Verify email address</a>
+										<p style="margin-top:20px">If your account does not activate after clicking on the button, please copy the link below and paste into the url bar of your PC or mobile web browser and open the webpage.</p>
+	
+										<p><a href="" style="color:#336699;text-decoration:underline" target="_blank">http://www.bigture.co.kr:8080/bigture/mobile/account/activateUser/86848ds91919/$id</a></p>
+										
+										<p>If you did not click the email verification button, but the email has been sent, please send us an email as soon as you can to the email address below.<p>
+										
+										<p>E-mail <br>
+										hello.bigture@clockworks.co.kr
+										</p>
+	
+										<p>Thank you.</p>
+										
+										<p style="margin-bottom:30px">- -Team Bigture.</p><hr style="border:1px dashed #eee;margin-bottom:20px">
+									<div style="text-align:center">
+										<p><span style="font-size:8pt;color:#999999">Copyright 2014 <a href="http://clockworks.co.kr">The Clockworks Innovate.</a> All rights reserved.</span></p>
+									</div>
+								</td>
+								<td width="7" align="left" valign="top" bgcolor="#efefe1"></td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td style="line-height:10pt" height="7" bgcolor="#efefe1"> </td>
+			</tr>
+		</tbody>
+	</table>
+	
+		
+</body>
+</html>
+

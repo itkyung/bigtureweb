@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+				http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd "
+	default-destroy-method="destroy" default-init-method="init">
+
+	<security:http pattern="/resources/**" security="none"/>			
+				
+				
+	<security:http access-denied-page="/error/accessDenied.jsp" use-expressions="true">
+		<security:intercept-url pattern="/" access="permitAll"/>
+		<security:intercept-url pattern="/loginByToken" access="permitAll"/>
+		<security:intercept-url pattern="/loginBySocial" access="permitAll"/>
+		<security:intercept-url pattern="/front/**" access="permitAll"/>
+		<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+		<security:intercept-url pattern="/mobile/**" access="permitAll"/>
+		<security:intercept-url pattern="/mobile/getNotifications" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/deleteNotifications" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/findPushSettings" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/profile/saveCareer" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/profile/deleteCareer" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/profile/uploadNewsImage" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/profile/saveNews" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/profile/deleteNews" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/friends/getFriendGroups" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/friends/deleteFriendGroup" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/friends/saveFriendGroup" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/friends/unlike" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/friends/editGroupMember" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/friends/getGroupAndMembers" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/friends/searchLikeYous" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/account/updateAccount" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/account/uploadProfileImage" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/account/changePassword" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/artwork/findFriendsArtworks" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/artwork/findCollectedArtworks" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/artwork/sendSticker" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/artwork/deleteCommentOrSticker" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/artwork/sendComment" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/artwork/addArtworkCollection" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/artwork/removeArtworkCollection" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/artwork/requestToContest" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/artwork/editArtwork" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/postcard/getSendedPostCards" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/postcard/getReceivedPostCards" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/mobile/postcard/getAllPostCards" access="hasRole('ROLE_USER')"/>
+		
+		
+		<security:intercept-url pattern="/login/**" access="permitAll"/>
+		<security:intercept-url pattern="/an/**"   access="permitAll"/>
+		<security:custom-filter ref="requestHeaderFilter" before="FORM_LOGIN_FILTER" />
+		<security:custom-filter ref="socialHeaderFilter" before="BASIC_AUTH_FILTER"/>
+		
+		<security:form-login login-page="/login/loginForm" 
+			authentication-success-handler-ref="loginSuccessHandler" 
+			authentication-failure-handler-ref="loginFaiulureHandler" 
+			default-target-url="/" always-use-default-target="false" 
+			login-processing-url="/loginAction" />
+		<security:logout logout-url="/logout" 
+			invalidate-session="true"
+			success-handler-ref="logoutSuccessHandler"/>
+		<security:custom-filter after="EXCEPTION_TRANSLATION_FILTER" ref="ajaxSessionTimeoutFilter"/>
+		
+		<security:anonymous/>
+	</security:http>			
+				 
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider ref="daoAuthenticationProvider"/>
+		<security:authentication-provider ref="tokenAuthenticationProvider"/>
+		<security:authentication-provider ref="socialAuthenticationProvider"/>
+	</security:authentication-manager>
+				
+	<bean id="loginSuccessHandler" class="com.clockworks.bigture.identity.impl.LoginSuccessHandler"></bean>		
+	
+	<bean id="loginFaiulureHandler" class="com.clockworks.bigture.identity.impl.LoginFailureHandler"></bean>			
+	
+	<bean id="logoutSuccessHandler" class="com.clockworks.bigture.identity.impl.LogoutSuccessHandler"></bean>			
+	
+	<bean id="ajaxSessionTimeoutFilter" class="com.clockworks.bigture.identity.impl.AjaxSessionTimeoutFilter">
+		
+	</bean>
+	
+	<bean id="requestHeaderFilter" class="com.clockworks.bigture.identity.impl.RequestHeaderProcessingFilter">
+		<property name="authenticationManager" ref="authenticationManager"></property>
+		<property name="authenticationSuccessHandler" ref="loginSuccessHandler"></property>
+		<property name="authenticationFailureHandler" ref="loginFaiulureHandler"></property>
+	</bean>	
+	<bean id="socialHeaderFilter" class="com.clockworks.bigture.identity.impl.SocialProcessingFilter">
+		<property name="authenticationManager" ref="authenticationManager"></property>
+		<property name="authenticationSuccessHandler" ref="loginSuccessHandler"></property>
+		<property name="authenticationFailureHandler" ref="loginFaiulureHandler"></property>
+	</bean>		
+		
+	<bean id="daoAuthenticationProvider"  class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+  		<property name="userDetailsService" ref="userDetailsService"/>
+  		<property name="hideUserNotFoundExceptions" value="false"/>
+  		<property name="passwordEncoder" ref="md5PasswordEncoder"/>
+  		
+	</bean>
+	
+	<bean id="md5PasswordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder">
+    </bean>
+    
+	<bean id="tokenAuthenticationProvider" class="com.clockworks.bigture.identity.impl.SignedTokenAuthenticationProvider">
+		<property name="userDetailsService" ref="userDetailsService"/>
+		<property name="userService" ref="UserService"/>
+		<property name="hideUserNotFoundExceptions" value="false"/>
+	</bean>
+	
+	<bean id="socialAuthenticationProvider" class="com.clockworks.bigture.identity.impl.SocialAuthenticationProvider">
+		<property name="userDetailsService" ref="userDetailsService"/>
+		<property name="userService" ref="UserService"/>
+		<property name="hideUserNotFoundExceptions" value="false"/>
+	</bean>
+	
+
+	<bean id="userDetailsService" class="com.clockworks.bigture.identity.impl.UserDetailsServiceImpl"/>
+
+	<bean id="userPassAuthFilterBeanPostProcessor"
+		class="com.clockworks.bigture.identity.impl.UserPassAuthFilterBeanPostProcessor">
+		<property name="usernameParameter" value="loginId"/>
+		<property name="passwordParameter" value="pwd"/>
+	</bean>
+
+</beans>
